@@ -1,0 +1,57 @@
+---
+// Hero: imagen remota (Unsplash) – optimizada en build si getImage lo soporta
+const heroSrc = 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1920&q=85';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero">
+  <div class="absolute inset-0 z-0" id="parallax-bg">
+    <img
+      src={heroSrc}
+      alt="Sesión de yoga en ZENITH"
+      width="1920"
+      height="1080"
+      class="w-full h-full object-cover scale-105"
+      fetchpriority="high"
+    />
+  </div>
+
+  <!-- Overlay de cristal (backdrop-blur) -->
+  <div
+    class="absolute inset-0 z-10 bg-[#F9F6F2]/70 backdrop-blur-md"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Mensaje flotante -->
+  <div class="relative z-20 max-w-4xl mx-auto px-6 text-center">
+    <p class="font-sans text-[#D4A373] uppercase tracking-[0.3em] text-sm mb-4 font-medium">
+      Organic Modern Wellness
+    </p>
+    <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#2D2D2D] tracking-tight mb-6">
+      ZENITH
+    </h1>
+    <p class="font-serif text-2xl sm:text-3xl text-[#2D2D2D]/90 italic mb-4">
+      Yoga & Spa
+    </p>
+    <p class="text-[#2D2D2D]/80 text-lg max-w-xl mx-auto mb-10 font-light">
+      Donde el movimiento se encuentra con la calma. Vive la experiencia.
+    </p>
+    <a
+      href="#reservas"
+      class="btn-border-animated inline-block rounded-sm font-sans text-sm tracking-wide transition transform hover:scale-[1.02]"
+    >
+      Reservar tu clase
+    </a>
+  </div>
+
+  <!-- Parallax sutil con JS -->
+  <script>
+    const bg = document.getElementById('parallax-bg');
+    if (bg) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const rate = scrolled * 0.2;
+        bg.style.transform = `translate3d(0, ${rate * 0.4}px, 0) scale(1.05)`;
+      }, { passive: true });
+    }
+  </script>
+</section>

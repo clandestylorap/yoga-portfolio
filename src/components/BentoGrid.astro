@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets';
+import ScrollReveal from './ScrollReveal.astro';
+
+const services = [
+  {
+    id: 'hatha',
+    title: 'Hatha',
+    description: 'Alineación y respiración consciente. La base clásica para construir una práctica sólida y estable.',
+    image: 'public/images/pose_1.jpg',
+    size: 'large', // ocupa más en el grid
+  },
+  {
+    id: 'vinyasa',
+    title: 'Vinyasa Flow',
+    description: 'Flujo dinámico que enlaza posturas con la respiración. Energía y fluidez en cada movimiento.',
+    image: 'public/images/pose_2.jpg',
+    size: 'medium',
+  },
+  {
+    id: 'meditacion',
+    title: 'Meditación Sonora',
+    description: 'Baños de sonido y mindfulness para profundizar la calma y la presencia.',
+    image: 'public/images/pose_3.jpg',
+    size: 'medium',
+  },
+];
+---
+
+<section class="py-20 md:py-28 px-6 bg-[#F9F6F2]" id="servicios" aria-labelledby="bento-title">
+  <div class="max-w-6xl mx-auto">
+    <ScrollReveal type="fade" class="text-center mb-16">
+      <h2 id="bento-title" class="font-serif text-4xl md:text-5xl text-[#2D2D2D] mb-4">Servicios</h2>
+      <p class="text-[#2D2D2D]/70 max-w-xl mx-auto font-light">Prácticas de yoga y mindfulness que cuidan cuerpo y mente.</p>
+    </ScrollReveal>
+
+    <!-- Bento Grid estilo Apple: 1 grande + 2 medianas -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+      <ScrollReveal type="left" class="md:row-span-2">
+        <a href="#reservas" class="group block h-full min-h-[320px] md:min-h-[480px] rounded-2xl overflow-hidden bg-[#2D2D2D] shadow-xl transition transform duration-500 hover:scale-[1.02] hover:shadow-2xl">
+          <div class="relative h-full">
+            <img
+              src={services[0].image}
+              alt="Clase de Hatha en ZENITH"
+              width={800}
+              height={600}
+              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/90 via-[#2D2D2D]/20 to-transparent flex flex-col justify-end p-8">
+              <h3 class="font-serif text-3xl text-[#F9F6F2] mb-2">{services[0].title}</h3>
+              <p class="text-[#F9F6F2]/90 text-sm max-w-md">{services[0].description}</p>
+            </div>
+          </div>
+        </a>
+      </ScrollReveal>
+
+      <ScrollReveal type="left" class="md:row-span-2">
+        <a href="#reservas" class="group block h-full min-h-[320px] md:min-h-[480px] rounded-2xl overflow-hidden bg-[#2D2D2D] shadow-lg hover:shadow-xl">
+          <div class="relative h-full">
+            <img
+              src={services[1].image}
+              alt="Vinyasa Flow en ZENITH"
+              width={800}
+              height={600}
+              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/90 via-[#2D2D2D]/20 to-transparent flex flex-col justify-end p-8">
+              <h3 class="font-serif text-3xl text-[#F9F6F2] mb-2">{services[1].title}</h3>
+              <p class="text-[#F9F6F2]/90 text-sm max-w-md">{services[1].description}</p>
+            </div>
+          </div>
+        </a>
+      </ScrollReveal>
+
+      <ScrollReveal type="left" class="md:row-span-2">
+        <a href="#reservas" class="group block h-full min-h-[320px] md:min-h-[480px] rounded-2xl overflow-hidden bg-[#2D2D2D] shadow-lg hover:shadow-xl">
+          <div class="relative h-full">
+            <img
+              src={services[2].image}
+              alt="Meditación Sonora en ZENITH"
+              width={800}
+              height={600}
+              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/90 via-[#2D2D2D]/20 to-transparent flex flex-col justify-end p-8">
+              <h3 class="font-serif text-3xl text-[#F9F6F2] mb-2">{services[2].title}</h3>
+              <p class="text-[#F9F6F2]/90 text-sm max-w-md">{services[2].description}</p>
+            </div>
+          </div>
+        </a>
+      </ScrollReveal>
+    </div>
+  </div>
+</section>

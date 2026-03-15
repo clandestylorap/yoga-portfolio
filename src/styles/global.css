@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* ZENITH YOGA & SPA – Organic Modern */
+@theme {
+  --color-bone: #F9F6F2;
+  --color-charcoal: #2D2D2D;
+  --color-charcoal-soft: #4a4a4a;
+  --color-dusty-rose: #D4A373;
+  --color-dusty-rose-light: #e8c9a8;
+  --color-dusty-rose-dark: #b8885c;
+  --font-serif: 'Prata', ui-serif, Georgia, serif;
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-charcoal);
+  background-color: var(--color-bone);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Scroll reveal – fade in */
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal from left/right con delay escalonado */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Botón con borde animado (hero) */
+@keyframes border-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.btn-border-animated {
+  position: relative;
+  background: var(--color-charcoal);
+  color: var(--color-bone);
+  padding: 1rem 2rem;
+  border: none;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.btn-border-animated::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, var(--color-dusty-rose), var(--color-dusty-rose-light), var(--color-dusty-rose), var(--color-dusty-rose-dark));
+  background-size: 300% 100%;
+  animation: border-flow 4s ease infinite;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn-border-animated::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-charcoal);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.btn-border-animated:hover::after {
+  background: #3d3d3d;
+}

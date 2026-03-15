@@ -1,0 +1,56 @@
+---
+import ScrollReveal from './ScrollReveal.astro';
+
+const classes = [
+  { time: '09:00', name: 'Hatha Morning', instructor: 'Elena Ruiz', 
+  instructorImage: 'public/images/helena.jpg', description: 'Despierta el cuerpo con posturas mantenidas y respiración.' },
+  { time: '10:30', name: 'Vinyasa Flow', instructor: 'Marcos Vega', 
+  instructorImage: 'public/images/marcos.jpg', description: 'Flujo dinámico para conectar movimiento y respiración.' },
+  { time: '12:00', name: 'Meditación Sonora', instructor: 'Sara López', 
+  instructorImage: 'public/images/sara.jpg', description: 'Baño de sonido con cuencos y gong para profundizar la calma.' },
+  { time: '18:00', name: 'Hatha Evening', instructor: 'Elena Ruiz', 
+  instructorImage: 'public/images/helena.jpg', description: 'Cierra el día con una práctica suave y restaurativa.' },
+  { time: '19:30', name: 'Vinyasa Flow', instructor: 'Marcos Vega', 
+  instructorImage: 'public/images/marcos.jpg', description: 'Sesión de flujo para todos los niveles.' },
+];
+---
+
+<section class="py-20 md:py-28 px-6 bg-white" id="horarios" aria-labelledby="schedule-title">
+  <div class="max-w-4xl mx-auto">
+    <ScrollReveal type="fade" class="text-center mb-14">
+      <h2 id="schedule-title" class="font-serif text-4xl md:text-5xl text-[#2D2D2D] mb-4">Horario</h2>
+      <p class="text-[#2D2D2D]/70 font-light">Pasa el ratón sobre una clase para conocer al instructor.</p>
+    </ScrollReveal>
+
+    <ScrollReveal type="fade">
+      <ul class="space-y-2">
+        {classes.map((cls) => (
+          <li class="group relative rounded-xl border border-[#e8e6e2] overflow-hidden hover:border-[#D4A373]/40 hover:shadow-lg transition-all duration-300">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 p-5">
+              <div class="flex-shrink-0">
+                <span class="font-serif text-2xl text-[#D4A373]">{cls.time}</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-serif text-xl text-[#2D2D2D]">{cls.name}</h3>
+                <!-- Revelación al hover: instructor + descripción -->
+                <div class="mt-3 flex flex-col sm:flex-row sm:items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out">
+                  <img
+                    src={cls.instructorImage}
+                    alt={cls.instructor}
+                    width={80}
+                    height={80}
+                    class="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-[#D4A373]/30"
+                  />
+                  <div>
+                    <p class="font-medium text-[#2D2D2D]">{cls.instructor}</p>
+                    <p class="text-sm text-[#2D2D2D]/70">{cls.description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </ScrollReveal>
+  </div>
+</section>

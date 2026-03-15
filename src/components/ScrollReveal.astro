@@ -1,0 +1,12 @@
+---
+interface Props {
+  type?: 'fade' | 'left' | 'right';
+  class?: string;
+}
+
+const { type = 'fade', class: className = '' } = Astro.props;
+const revealClass = type === 'left' ? 'reveal-left' : type === 'right' ? 'reveal-right' : 'reveal-fade';
+---
+<div class:list={[revealClass, className]} data-reveal>
+  <slot />
+</div>

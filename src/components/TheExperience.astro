@@ -1,0 +1,41 @@
+---
+import ScrollReveal from './ScrollReveal.astro';
+
+const experienceImage = '/public/images/pose_4.jpg';
+---
+
+<section class="py-20 md:py-28 px-6 overflow-hidden bg-[#F9F6F2]" id="experiencia" aria-labelledby="experience-title">
+  <div class="max-w-6xl mx-auto">
+    <!-- Diseño asimétrico: texto e imagen se solapan -->
+    <div class="relative">
+      <!-- Bloque de texto: desplazado para solapar -->
+      <ScrollReveal type="left" class="relative z-10 md:max-w-xl lg:max-w-2xl md:pt-12 lg:pt-20">
+        <span class="text-[#D4A373] uppercase tracking-[0.2em] text-xs font-medium">The Experience</span>
+        <h2 id="experience-title" class="font-serif text-5xl md:text-5xl lg:text-6xl text-[#2D2D2D] mt-2 mb-6 leading-tight">
+          Un espacio que respira contigo
+        </h2>
+        <p class="text-[#2D2D2D] text-lg leading-relaxed mb-6">
+          En ZENITH cada detalle está pensado para que desconectes: luz natural, materiales nobles y silencio que invita a la introspección.
+        </p>
+        <p class="text-[#2D2D2D]/80">
+          Nuestras salas están equipadas con suelos de madera, espejos discretos y sistemas de sonido para sesiones de meditación sonora. El vestuario incluye taquillas y duchas con productos de bienestar.
+        </p>
+      </ScrollReveal>
+
+      <!-- Imagen: solapada a la derecha (y ligeramente detrás en móvil) -->
+      <ScrollReveal type="right" class="mt-10 md:mt-0 md:absolute md:right-0 md:top-0 md:w-[55%] lg:w-[50%]">
+        <div class="relative md:-mr-8 lg:-mr-16">
+          <img
+            src={experienceImage}
+            alt="Interior del estudio ZENITH Yoga & Spa"
+            width={900}
+            height={600}
+            class="w-full rounded-2xl shadow-2xl object-cover aspect-[3/2]"
+          />
+          <!-- Acento decorativo dusty rose -->
+          <div class="absolute -bottom-6 -right-6 w-24 h-24 md:w-32 md:h-32 bg-[#D4A373]/20 rounded-2xl -z-10" aria-hidden="true"></div>
+        </div>
+      </ScrollReveal>
+    </div>
+  </div>
+</section>
